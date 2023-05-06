@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="x-icon" href="images/websiteIcon.png">
+    <script src="https://kit.fontawesome.com/4e20d6ecf7.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container" id="background">
+
+        <h1 id="hangmanSign">Hangman</h1>
+        <h1 id="classicSign">CLASSIC</h1>
+
+        <input type="text" id="userInput" placeholder="Type Secret Text Here" onkeydown="return alphaOnly(event)">
+        <button id="userInputButton" onclick="drawLines()"> Done </button>
+
+        <input type="text" id="letter" maxlength=1 onkeydown="return alphaOnlyNoSpaces(event)">
+        <button id="letterButton" onclick="guessLetter()"> Guess </button>
+
+        <div id="alreadySign">Guessed Letters:</div>
+        <div id="already"></div>
+
+        <div id="lines"></div>
+
+        <div id="gallow">
+            <div class="base"></div>
+            <div class="pole"></div>
+            <div class="beam"></div>
+            <div class="noose"></div>
+
+            <div class="cHead" id="head"></div>
+            <div class="cBody" id="body"></div>
+            <div class="cLeftArm" id="leftArm"></div>
+            <div class="cRightArm" id="rightArm"></div>
+            <div class="cLeftLeg" id="leftLeg"></div>
+            <div class="cRightLeg" id="rightLeg"></div>
+        </div>
+
+        <div id="conservedPhrase" value=""></div>
+
+        <button class="icon" id="instructions" onclick="displayHowToPlay()">
+            <div class="tooltip">Click Me!</div>
+            <span>
+                ?
+            </span>
+        </button>
+
+        <a href="https://www.instagram.com/l.arrychen/" target="_blank">
+            <button class="icon" id="instagram">
+                <div class="tooltip">@l.arrychen</div>
+                <span>
+                    <i class="fa-brands fa-instagram"></i>
+                </span>
+            </button>
+        </a>
+
+        <a href="https://discord.com/channels/@me" target="_blank">
+            <button class="icon" id="discord">
+                <div class="tooltip">oDragon#6976</div>
+                <span>
+                    <i class="fab fa-discord"></i>
+                </span>
+            </button>
+        </a>
+
+        <a href="https://www.linkedin.com/in/-larrychen/" target="_blank">
+            <button class="icon" id="linkedin">
+                <div class="tooltip">LinkedIn</div>
+                <span>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </span>
+            </button>
+        </a>
+
+    </div>
+
+    <div id="winScreen" class="popup">
+        <h1 id="victoryText">VICTORY</h1>
+        <h1 class="endScreenText">The guesser won by guessing all the letters!</h1>
+        <button class="playAgain" onclick="reset(true)">Play Again</button>
+    </div>
+
+    <div id="loseScreen" class="popup">
+        <h1 id="gameOverText">GAME OVER</h1>
+        <h1 class="endScreenText">The guesser lost by guessing wrong too many times!</h1>
+        <button class="playAgain" onclick="reset(true)">Play Again</button>
+    </div>
+
+    <div id="howToPlayScreen">
+        <div id="howToPlaySign">HOW TO PLAY</div>
+        <div id="twoplayer">
+            This is a two-player game, grab a friend!
+        </div>
+
+        <div class="box" id="box1">
+            <div class="circle">1</div>
+            <div class="stepText">Tell your friend to look away. Then, type your secret text in the first text box and
+                click "Done". The following placeholders will appear:</div>
+            <div id="graphic1">_ _ _ _ _ _ _ _ _ _ _ _</div>
+        </div>
+
+        <div class="box" id="box2">
+            <div class="circle">2</div>
+            <div class="stepText">Your friend should try to figure out what you typed by guessing random letters. To
+                guess a letter, type the letter in the second box and click "Guess".
+            </div>
+            <div id="graphic2a"></div>
+            <div id="graphic2b">Guess</div>
+        </div>
+
+        <div class="box" id="box3">
+            <div class="circle">3</div>
+            <div class="stepText">If your friend guesses all the letters in your secret text, they win! However, if they
+                guess wrong too many times, they lose!</div>
+            <div id="graphic3">
+                <div class="base"></div>
+                <div class="pole"></div>
+                <div class="beam"></div>
+                <div class="noose"></div>
+
+                <div class="cHead"></div>
+                <div class="cBody"></div>
+                <div class="cLeftArm"></div>
+                <div class="cRightArm"></div>
+                <div class="cLeftLeg"></div>
+                <div class="cRightLeg"></div>
+            </div>
+        </div>
+
+        <button id="letsGo" class="playAgain" onclick="startGame()">Let's Go!</button>
+    </div>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>

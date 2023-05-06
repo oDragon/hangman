@@ -1,0 +1,582 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(221, 247, 255);
+}
+
+#background {
+    position: absolute;
+    top: -10px;
+}
+
+#hangmanSign {
+    font-family: Verdana, sans-serif;
+    font-size: 60px;
+    position: absolute;
+    top: 40px;
+    left: 50px;
+}
+
+#classicSign {
+    font-family: Verdana, sans-serif;
+    font-size: 25px;
+    position: absolute;
+    top: 110px;
+    left: 248px;
+}
+
+#userInput {
+    padding: 0px 10px;
+    font-size: 20px;
+    width: 320px;
+    height: 40px;
+    position: absolute;
+    border-radius: 15px;
+    border: 2px solid black;
+    top: 98px;
+    left: 470px;
+}
+
+#userInputButton {
+    background-color: rgb(65, 65, 255);
+    font-size: 17px;
+    letter-spacing: 1px;
+    color: white;
+    width: 85px;
+    height: 35px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 1px 4px 0px 0px rgb(62, 92, 110);
+    position: absolute;
+    top: 152px;
+    left: 600px;
+}
+
+#userInputButton:active {
+    transform: translate(1px, 4px);
+    box-shadow: 0px 0px 0px 0px;
+
+}
+
+#letter {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: 40px;
+    position: absolute;
+    top: 110px;
+    left: 890px;
+}
+
+#letterButton {
+    background-color: rgb(65, 65, 255);
+    width: 110px;
+    height: 50px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 4px 0px 0px rgb(62, 92, 110);
+    position: absolute;
+    top: 120px;
+    left: 975px;
+}
+
+#letterButton:active {
+    transform: translate(1px, 4px);
+    box-shadow: 0px 0px 0px 0px;
+}
+
+#already {
+    width: 283px;
+    height: 110px;
+    font-size: 30px;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    border: 5px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: 90px;
+    left: 1175px;
+}
+
+#alreadySign {
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+    width: 300px;
+    position: absolute;
+    top: 60px;
+    left: 1180px;
+}
+
+#gallow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.base {
+    width: 250px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 650px;
+    left: 75px;
+}
+
+.pole {
+    width: 10px;
+    height: 450px;
+    background-color: black;
+    position: absolute;
+    top: 200px;
+    left: 195px;
+}
+
+.beam {
+    width: 200px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 200px;
+    left: 195px;
+}
+
+.noose {
+    width: 10px;
+    height: 50px;
+    background-color: black;
+    position: absolute;
+    top: 200px;
+    left: 395px;
+}
+
+#lines {
+    width: 900px;
+    text-align: center;
+    font-size: 90px;
+    font-family: 'Arial', sans-serif;
+    position: absolute;
+    top: 250px;
+    left: 525px;
+}
+
+#head {
+    display: none;
+}
+
+.cHead {
+    width: 75px;
+    height: 75px;
+    border: 5px solid black;
+    border-radius: 50%;
+    position: absolute;
+    top: 250px;
+    left: 357px;
+}
+
+#body {
+    display: none;
+}
+
+.cBody {
+    width: 5px;
+    height: 125px;
+    background-color: black;
+    position: absolute;
+    top: 335px;
+    left: 397px;
+}
+
+#leftArm {
+    display: none;
+}
+
+.cLeftArm {
+    width: 5px;
+    height: 90px;
+    background-color: black;
+    position: absolute;
+    top: 335px;
+    left: 366px;
+    transform: rotate(45deg);
+}
+
+#rightArm {
+    display: none;
+}
+
+.cRightArm {
+    width: 5px;
+    height: 90px;
+    background-color: black;
+    position: absolute;
+    top: 334px;
+    left: 427px;
+    transform: rotate(-45deg);
+}
+
+#leftLeg {
+    display: none;
+}
+
+.cLeftLeg {
+    width: 5px;
+    height: 115px;
+    background-color: black;
+    position: absolute;
+    top: 450px;
+    left: 367px;
+    transform: rotate(30deg);
+}
+
+#rightLeg {
+    display: none;
+}
+
+.cRightLeg {
+    width: 5px;
+    height: 115px;
+    background-color: black;
+    position: absolute;
+    top: 450px;
+    left: 427px;
+    transform: rotate(-30deg);
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon span {
+    height: 40px;
+    width: 40px;
+    color: white;
+    display: block;
+    border-radius: 50%;
+    box-shadow: 1px 2px 0px rgb(44, 39, 39);
+    text-align: center;
+}
+
+.icon span i {
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.icon .tooltip {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    visibility: hidden;
+    position: absolute;
+    top: -30px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.icon .tooltip:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    background: black;
+    top: 28px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+}
+
+.icon:hover .tooltip {
+    top: -44px;
+    visibility: visible;
+}
+
+#instructions {
+    border-radius: 50%;
+    position: absolute;
+    border: none;
+    top: 700px;
+    left: 50px;
+}
+
+#instructions .tooltip {
+    width: 75px;
+}
+
+#instructions span {
+    font-size: 25px;
+    line-height: 40px;
+    font-weight: bold;
+    background-color: rgb(248, 177, 23);
+    box-shadow: 1px 2px 0px rgb(44, 39, 39);
+}
+
+#instagram {
+    border-radius: 50%;
+    position: absolute;
+    border: none;
+    top: 700px;
+    left: 130px;
+}
+
+#instagram span {
+    background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+        radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+        radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+        linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+}
+
+#discord {
+    border-radius: 50%;
+    position: absolute;
+    border: none;
+    top: 700px;
+    left: 210px;
+}
+
+#discord span {
+    background-color: rgb(88, 101, 242);
+}
+
+#linkedin {
+    border-radius: 50%;
+    position: absolute;
+    border: none;
+    top: 700px;
+    left: 290px;
+}
+
+#linkedin span {
+    background-color: rgb(0, 119, 181);
+}
+
+.container#background.active {
+    filter: blur(12px);
+    user-select: none;
+    pointer-events: none;
+}
+
+#winScreen {
+    visibility: hidden;
+    width: 1200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    user-select: none;
+}
+
+#victoryText {
+    color: rgb(44, 255, 44);
+    font-size: 170px;
+    text-shadow: 2px 2px 2px black;
+}
+
+#loseScreen {
+    visibility: hidden;
+    width: 1200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    user-select: none;
+}
+
+#gameOverText {
+    color: red;
+    font-size: 170px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.endScreenText {
+    font-size: 20px;
+    color: rgb(39, 39, 39);
+    transform: translate(0%, 200%);
+}
+
+.playAgain {
+    padding: 15px 90px;
+    background-color: rgb(255, 92, 63);
+    border: 0px solid;
+    border-radius: 30px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    transform: translate(0%, 250%);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.playAgain:hover {
+    box-shadow: rgba(0, 0, 0, 0.50) 0px 5px 20px;
+    -webkit-transform: scale(1.1);
+    transform: translate(0%, 250%) scale(1.1);
+}
+
+#howToPlayScreen {
+    visibility: hidden;
+    position: absolute;
+    user-select: none;
+}
+
+#howToPlaySign {
+    width: 300px;
+    font-family: Verdana, sans-serif;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: rgb(248, 177, 23);
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    left: 600px;
+}
+
+#twoplayer {
+    padding: 5px 10px;
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    width: 500px;
+    border-radius: 10px;
+    border: 4px solid black;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    left: 510px;
+}
+
+.box {
+    padding: 5px 10px;
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    width: 350px;
+    height: 450px;
+    border-radius: 10px;
+    border: 4px solid black;
+    background-color: white;
+}
+
+#box1 {
+    position: absolute;
+    top: 170px;
+    left: 120px;
+}
+
+#box2 {
+    position: absolute;
+    top: 170px;
+    left: 580px;
+}
+
+#box3 {
+    position: absolute;
+    top: 170px;
+    left: 1040px;
+}
+
+.circle {
+    font-family: Verdana, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    background-color:rgb(32, 233, 32);
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.35);
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 160px;
+}
+
+.stepText {
+    width: 330px;
+    font-weight: normal;
+    position: absolute;
+    top: 100px;
+    left: 18px;
+}
+
+#graphic1 { 
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    width: 300px;
+    position: absolute;
+    top: 250px;
+    left: 30px;
+}
+
+#graphic2a {
+    width: 70px;
+    height: 70px;
+    font-weight: normal;
+    line-height: 70px;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-size: 40px;
+    position: absolute;
+    top: 300px;
+    left: 85px;
+}
+
+#graphic2b {
+    background-color: rgb(65, 65, 255);
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 4px 0px 0px rgb(62, 92, 110);
+    position: absolute;
+    top: 310px;
+    left: 175px;
+}
+
+#graphic3 {
+    scale: 0.35;
+    position: absolute;
+    top: 200px;
+    left: 80px;
+}
+
+#letsGo {
+    width: 300px;
+    position: absolute;
+    top: 520px;
+    left: 620px;
+}
